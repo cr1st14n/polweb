@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\loginController;
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('Auth.login');
+    // return view('welcome');
+});
+Route::post('login',[loginController::class,'login'])->middleware('guest')->name('login');
+Route::group(['prefix'=>'/'],function ()
+{
+    Route::get('inicio',[homeController::class,'index']);
 });

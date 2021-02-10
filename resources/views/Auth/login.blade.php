@@ -32,11 +32,14 @@
     <title>Bracket Responsive Bootstrap 4 Admin Template</title>
 
     <!-- vendor css -->
-    <link href="../lib/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="../lib/Ionicons/css/ionicons.css" rel="stylesheet">
+    <link href="{{ asset('resources/diseño/lib/font-awesome/css/font-awesome.css')}}" rel="stylesheet">
+    <link href="{{ asset('resources/diseño/lib/Ionicons/css/ionicons.css')}}" rel="stylesheet">
+    <!-- <link type="text/css" rel="stylesheet" href="{{ asset('Plantilla/assets/css/style.css')}}" /> -->
+
+
 
     <!-- Bracket CSS -->
-    <link rel="stylesheet" href="../css/bracket.css">
+    <link rel="stylesheet" href="{{ asset('resources/diseño/css/bracket.css')}}">
 </head>
 
 <body>
@@ -44,25 +47,29 @@
     <div class="d-flex align-items-center justify-content-center bg-br-primary ht-100v">
 
         <div class="login-wrapper wd-300 wd-xs-350 pd-25 pd-xs-40 bg-white rounded shadow-base">
-            <div class="signin-logo tx-center tx-28 tx-bold tx-inverse"><span class="tx-normal">[</span> bracket <span class="tx-normal">]</span></div>
-            <div class="tx-center mg-b-60">The Admin Template For Perfectionist</div>
+            <form id="formLogin">
+                @csrf
+                <div class="signin-logo tx-center tx-28 tx-bold tx-inverse"><span class="tx-normal">[</span> Sistema POlicial de salud <span class="tx-normal">]</span></div>
+                <div class="tx-center mg-b-60">Sistema en desarrollo</div>
 
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Enter your username">
-            </div><!-- form-group -->
-            <div class="form-group">
-                <input type="password" class="form-control" placeholder="Enter your password">
-                <a href="" class="tx-info tx-12 d-block mg-t-10">Forgot password?</a>
-            </div><!-- form-group -->
-            <button type="submit" class="btn btn-info btn-block">Sign In</button>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="usu_ci" placeholder="Ingresa tu usuario" require>
+                </div><!-- form-group -->
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Ingresa tu contraseña" require>
+                    <a href="" class="tx-info tx-12 d-block mg-t-10">Recuperar Contraseña?</a>
+                </div><!-- form-group -->
+                <button type="submit" class="btn btn-info btn-block">Ingresar</button>
+            </form>
 
-            <div class="mg-t-60 tx-center">Not yet a member? <a href="" class="tx-info">Sign Up</a></div>
+            <!-- <div class="mg-t-60 tx-center">Not yet a member? <a href="" class="tx-info">Sign Up</a></div> -->
         </div><!-- login-wrapper -->
     </div><!-- d-flex -->
 
-    <script src="../lib/jquery/jquery.js"></script>
-    <script src="../lib/popper.js/popper.js"></script>
-    <script src="../lib/bootstrap/bootstrap.js"></script>
+    <script src="{{ asset('resources/diseño/lib/jquery/jquery.js')}}"></script>
+    <script src="{{ asset('resources/diseño/lib/popper.js/popper.js')}}"></script>
+    <script src="{{ asset('resources/diseño/lib/bootstrap/bootstrap.js')}}"></script>
+    <script src="{{ asset('resources/js/login/login.js')}}"></script>
 
 </body>
 
