@@ -23,4 +23,9 @@ class loginController extends Controller
         }
         return 'false';
     }
+    public function logout()
+    {
+        Auth::logout();
+        return 1;
+    }
 }

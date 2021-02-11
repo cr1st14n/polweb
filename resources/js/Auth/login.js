@@ -14,3 +14,15 @@ $('#formLogin').submit(function (e) {
         }
     });
 });
+$('#btn-exitsis').click(function (e) { 
+    e.preventDefault();
+    $.ajax({
+        type: "post",
+        url: "logout",
+        data: {_token:$('meta[name=csrf-token]').attr('content')},
+        // dataType: "dataType",
+        success: function (resp) {
+            window.location.href='';
+        }
+    });
+});

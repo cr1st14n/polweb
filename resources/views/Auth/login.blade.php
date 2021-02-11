@@ -69,7 +69,7 @@
     <script src="{{ asset('resources/diseño/lib/jquery/jquery.js')}}"></script>
     <script src="{{ asset('resources/diseño/lib/popper.js/popper.js')}}"></script>
     <script src="{{ asset('resources/diseño/lib/bootstrap/bootstrap.js')}}"></script>
-    <script src="{{ asset('resources/js/login/login.js')}}"></script>
+    <script src="{{ asset('resources/js/Auth/login.js')}}"></script>
 
 </body>
 
