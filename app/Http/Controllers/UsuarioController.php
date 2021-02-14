@@ -47,5 +47,6 @@ class UsuarioController extends Controller
         // return User::where('id',$request->input('id'))->update([
 
         // ]);
+        $a=100;
     }
 }
