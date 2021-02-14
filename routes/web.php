@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\UsuarioController;
 use GuzzleHttp\Middleware;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,8 @@ Route::post('logout',[loginController::class,'logout'])->middleware('auth');
 Route::group(['prefix'=>'/'],function ()
 {
     Route::get('inicio',[homeController::class,'index']);
+});
+Route::group(['prefix'=>'usuario'],function()
+{
+    Route::get('index/',[UsuarioController::class,'index']);
 });
