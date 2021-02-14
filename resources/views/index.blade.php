@@ -172,6 +172,7 @@
     <!-- scripts sistema -->
     <script src="{{ asset('resources/js/Auth/login.js')}}"></script>
     <script src="{{ asset('resources/js/navegacion.js')}}"></script>
+    <script src="{{ asset('resources/js/usuario.js')}}"></script>
 
 </body>
 

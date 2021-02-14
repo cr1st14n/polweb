@@ -23,11 +23,16 @@ Route::get('/', function () {
 })->Middleware('guest')->name('pagLogin');
 Route::post('login',[loginController::class,'login'])->middleware('guest')->name('login');
 Route::post('logout',[loginController::class,'logout'])->middleware('auth');
+
 Route::group(['prefix'=>'/'],function ()
 {
     Route::get('inicio',[homeController::class,'index']);
 });
+
 Route::group(['prefix'=>'usuario'],function()
 {
     Route::get('index/',[UsuarioController::class,'index']);
+    Route::post('store/',[UsuarioController::class,'store']);
+    Route::get('listA/',[UsuarioController::class,'listA']);
+    Route::get('delete/',[UsuarioController::class,'delete']);
 });
