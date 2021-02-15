@@ -1,3 +1,5 @@
+// * variables temporales
+var idusuario_seleccionado = "";
 
 function showModalMakeUser() {
     $("#modal_userNew").modal("show");
@@ -40,8 +42,11 @@ function listUsuariosA() {
                             <td>${usu.usu_ci}</td>
                             <td>${usu.usu_nombre} ${usu.usu_appaterno}</td>
                             <td>
+                                <a href="#" class="btn btn-primary btn-icon" onclick="editUsuario(${usu.id})">
+                                    <div><i class="fa fa-edit"></i></div>
+                                </a>
                                 <a href="#" class="btn btn-primary btn-icon" onclick="deleteUsu(${usu.id})">
-                                    <div><i class="fa fa-send"></i></div>
+                                    <div><i class="fa fa-user-times"></i></div>
                                 </a>
                             </td>
                         </tr>
@@ -71,3 +76,38 @@ function deleteUsu(id) {
         },
     });
 }
+function editUsuario(id) {
+    idusuario_seleccionado = id;
+    $.ajax({
+        type: "get",
+        url: "usuario/edit/",
+        data: { usu: id },
+        // dataType: "dataType",
+        success: function (response) {
+            $("#form_editUser").trigger("reset");
+            $("#usu_ci").val(response.usu_ci);
+            $("#usu_nombre").val(response.usu_nombre);
+            $("#usu_app").val(response.usu_appaterno);
+            $("#usu_email").val(response.usu_email);
+            $("#modal_useredit").modal("show");
+        },
+    });
+}
+$("#form_editUser").submit(function (e) {
+    e.preventDefault();
+    $.ajax({
+        type: "post",
+        url: "usuario/update/" + idusuario_seleccionado,
+        data: $("#form_editUser").serialize(),
+        //   dataType: "dataType",
+        success: function (response) {
+            if (response) {
+                $("#modal_useredit").modal("hide");
+                listUsuariosA();
+                console.log("actualizado");
+            } else {
+                console.log("error");
+            }
+        },
+    });
+});

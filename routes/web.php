@@ -35,4 +35,6 @@ Route::group(['prefix'=>'usuario'],function()
     Route::post('store/',[UsuarioController::class,'store']);
     Route::get('listA/',[UsuarioController::class,'listA']);
     Route::get('delete/',[UsuarioController::class,'delete']);
+    Route::get('edit/',[UsuarioController::class,'edit']);
+    Route::post('update/{id}',[UsuarioController::class,'update']);
 });
