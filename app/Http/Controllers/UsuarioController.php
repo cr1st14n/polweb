@@ -48,5 +48,6 @@ class UsuarioController extends Controller
 
         // ]);
         $a=100;
+        $ca=1000;
     }
 }
