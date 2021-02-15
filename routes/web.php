@@ -19,8 +19,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-<<<<<<< HEAD
-   return'hola que tal a ';
+
+   
    return'hola que tal a ';
    return view('welcome');
 =======
