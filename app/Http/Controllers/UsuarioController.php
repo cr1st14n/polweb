@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class UsuarioController extends Controller
 {
@@ -20,7 +21,7 @@ class UsuarioController extends Controller
         $usu->usu_nombre=$request->input('nombre');
         $usu->usu_appaterno=$request->input('apellido');
         $usu->email=$request->input('mail');
-        $usu->password=encrypt('12345');
+        $usu->password=bcrypt('12345');
         return $res=$usu->save();
         
     }
@@ -32,22 +33,21 @@ class UsuarioController extends Controller
     {
         return User::where('id',$request->input('id_usu'))->delete();
     }
-    public function edit($id)
+    public function edit(Request $request)
     {
-        return User::where('id',$id)->first();
+        return User::where('id',$request->input('usu'))->first();
     }
-    public function update(Request $request)
+    public function update($idusu ,Request $request )
     {
-        $new=User::find($request->input('id'));
-        $new->usu_ci=$request->input('');
-        $new->usu_ci=$request->input('');
-        $new->usu_ci=$request->input('');
-        $new->usu_ci=$request->input('');
+        $new=User::find($idusu);
+        $new->usu_ci=$request->input('ci');
+        $new->usu_nombre=$request->input('nombre');
+        $new->usu_appaterno=$request->input('apellido');
+        $new->email=$request->input('mail');
         return $res=$new->save();
         // return User::where('id',$request->input('id'))->update([
 
         // ]);
-        $a=100;
-        $ca=1000;
+        
     }
 }
