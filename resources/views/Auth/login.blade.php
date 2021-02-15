@@ -53,7 +53,7 @@
                 <div class="tx-center mg-b-60">Sistema en desarrollo</div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" name="usu_ci" placeholder="Ingresa tu usuario" require>
+                    <input type="text" class="form-control" name="usu_ci" placeholder="Ingresa tu usuario" require autocomplete="off">
                 </div><!-- form-group -->
                 <div class="form-group">
                     <input type="password" class="form-control" name="password" placeholder="Ingresa tu contraseña" require>

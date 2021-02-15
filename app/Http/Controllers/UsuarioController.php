@@ -2,84 +2,51 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\usuario;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $usuarios=User::get();
+        return view('user.index')->with('users',$usuarios);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $usu= new User();
+        $usu->usu_ci=$request->input('ci');
+        $usu->usu_nombre=$request->input('nombre');
+        $usu->usu_appaterno=$request->input('apellido');
+        $usu->email=$request->input('mail');
+        $usu->password=encrypt('12345');
+        return $res=$usu->save();
+        
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function show(usuario $usuario)
+    public function listA()
     {
-        //
+        return User::orderBy('created_at','asc')->get();
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(usuario $usuario)
+    public function delete(Request $request)
     {
-        //
+        return User::where('id',$request->input('id_usu'))->delete();
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, usuario $usuario)
+    public function edit($id)
     {
-        //
+        return User::where('id',$id)->first();
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(usuario $usuario)
+    public function update(Request $request)
     {
-        //
+        $new=User::find($request->input('id'));
+        $new->usu_ci=$request->input('');
+        $new->usu_ci=$request->input('');
+        $new->usu_ci=$request->input('');
+        $new->usu_ci=$request->input('');
+        return $res=$new->save();
+        // return User::where('id',$request->input('id'))->update([
+
+        // ]);
+        $a=100;
     }
 }

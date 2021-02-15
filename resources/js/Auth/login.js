@@ -7,6 +7,7 @@ $('#formLogin').submit(function (e) {
         // dataType: "dataType",
         success: function (res) {
             if (res) {
+                console.log(res);
                 window.location.href='inicio';
             } else {
                 
@@ -26,3 +27,4 @@ $('#btn-exitsis').click(function (e) {
         }
     });
 });
+
