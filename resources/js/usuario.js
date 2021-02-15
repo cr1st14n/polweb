@@ -88,7 +88,7 @@ function editUsuario(id) {
             $("#usu_ci").val(response.usu_ci);
             $("#usu_nombre").val(response.usu_nombre);
             $("#usu_app").val(response.usu_appaterno);
-            $("#usu_email").val(response.usu_email);
+            $("#usu_email").val(response.email);
             $("#modal_useredit").modal("show");
         },
     });
