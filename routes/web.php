@@ -18,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+<<<<<<< HEAD
+   return'hola que tal a ';
+   return'hola que tal a ';
+   return view('welcome');
+=======
     return view('Auth.login');
 })->Middleware('guest')->name('pagLogin');
 Route::post('login',[loginController::class,'login'])->middleware('guest')->name('login');
@@ -25,4 +30,5 @@ Route::post('logout',[loginController::class,'logout'])->middleware('auth');
 Route::group(['prefix'=>'/'],function ()
 {
     Route::get('inicio',[homeController::class,'index']);
+>>>>>>> dev1
 });
