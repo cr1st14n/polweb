@@ -31,6 +31,7 @@ Route::group(['prefix'=>'/'],function ()
 
 Route::group(['prefix'=>'usuario'],function()
 {
+    // *
     Route::get('index/',[UsuarioController::class,'index']);
     Route::post('store/',[UsuarioController::class,'store']);
     Route::get('listA/',[UsuarioController::class,'listA']);
